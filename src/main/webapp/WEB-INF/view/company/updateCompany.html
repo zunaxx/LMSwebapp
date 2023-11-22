@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="Block" >
+    <form   th:action="@{/{id}(id=${company1.getId})}" th:method="PATCH" th:object="${company1}">
+        <div>
+            <span class="title">Company name:</span>
+            <input type="text" th:field="*{companyName}" id="companyName"/>
+        </div>
+        <div>
+            <span class="title">Located country:</span>
+            <input type="text" th:field="*{locatedCountry}" id="locatedCountry"/>
+        </div>
+        <button class="mainButton" type="submit">Save</button>
+    </form>
+</div>
+</body>
+</html>

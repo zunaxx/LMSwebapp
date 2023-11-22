@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="Block">
+    <div class="Block-title">teacher</div>
+    <div class="Block-content">
+        <div>
+            <table>
+                <tr>
+                    <th>course ID</th>
+                    <th>course name</th>
+                    <th>Duration</th>
+                </tr>
+                <tr th:each="teacher:${teachers}">
+                    <td><span class="title"><a  th:text="${teacher.getId()}"></a></span></td>
+                    <td><span class="title"><a   th:text="${teacher.firstName}"></a></span></td>
+                    <td><span class="title"><a  th:text="${teacher.lastName}"></a></span></td>
+                    <td><span class="title"><a  th:text="${teacher.email}"></a></span></td>
+
+                    <td><a th:href="@{/teacher/deleteTeacher(courseId=${param.courseId},teacherId=${teacher.getId})}"><button class="button" >delete</button></a></td>
+                    <td><a th:href="@{/teacher/getById(courseId=${param.courseId},teacherId=${teacher.getId})}"><button class="button">update</button></a></td>
+                </tr>
+                <td><a th:href="@{/teacher/newTeacher(courseId=${param.courseId})}"><button class="button">add new</button></a></td>
+
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>
